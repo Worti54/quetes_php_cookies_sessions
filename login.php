@@ -1,4 +1,27 @@
-<?php require 'inc/head.php'; ?>
+<?php
+
+
+
+// on teste si nos variables sont définies
+if (isset($_POST['loginname'])) {
+    if (!empty($_POST['loginname'])) {
+        session_start();
+        // on enregistre les paramètres de notre visiteur comme variables de session ($login et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
+        $_SESSION['loginname'] = $_POST['loginname'];
+
+        header('location: index.php');
+    }else{
+        header('location: login.php');
+
+    }
+}
+
+
+
+require 'inc/head.php';
+
+?>
+
 <div class="container" style="margin-top:40px">
 <div class="row">
   <div class="col-sm-6 col-md-4 col-md-offset-4">
